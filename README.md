@@ -1,5 +1,5 @@
 # SelfRelocationDriver
-THIS IS A DEMO SAMPLE driver that self relocates itself to a nonpaged pool and keeps running. 
+THIS IS A DEMO SAMPLE driver that relocates itself to a nonpaged pool and keeps running. 
 
 Below is the sequenece.
 1. In the DriverEntry, the driver allocates nonpaged pool and moved itself to the nonpaged pool memory
