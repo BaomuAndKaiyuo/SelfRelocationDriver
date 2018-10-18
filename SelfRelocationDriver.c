@@ -29,27 +29,27 @@ TimerDpcRoutine(
 //Timer DPC routine
 KTIMER			g_Timer;
 KDPC			g_Dpc;
-WORK_QUEUE_ITEM g_WorkItem;
+WORK_QUEUE_ITEM 	g_WorkItem;
 ULONG			g_DriverSize;
 ULONG			g_FireCount = 0;
 
 //Original driver base
-PUCHAR				g_OriginalDriverBase = NULL;
-PCHAR				g_OrigianlFormatString = "[%d] Timer Fired @ %04u%02u%02u-%02u%02u%02u.%04u\n";
+PUCHAR			g_OriginalDriverBase = NULL;
+PCHAR			g_OrigianlFormatString = "[%d] Timer Fired @ %04u%02u%02u-%02u%02u%02u.%04u\n";
 PKDEFERRED_ROUTINE	g_OriginalTimerDpcRoutine = TimerDpcRoutine;
-PKTIMER				g_OriginalTimer = &g_Timer;
-PKDPC				g_OriginalDpc = &g_Dpc;
+PKTIMER			g_OriginalTimer = &g_Timer;
+PKDPC			g_OriginalDpc = &g_Dpc;
 PWORK_QUEUE_ITEM	g_OriginalWorkItem = &g_WorkItem;
-PULONG				g_OriginalFireCount = &g_FireCount;
+PULONG			g_OriginalFireCount = &g_FireCount;
 
 //New driver base
-PUCHAR				g_NewDriverBase = NULL;
-PCHAR				g_NewFormatString = NULL;
+PUCHAR			g_NewDriverBase = NULL;
+PCHAR			g_NewFormatString = NULL;
 PKDEFERRED_ROUTINE	g_NewTimerDpcRoutine = NULL;
-PKTIMER				g_NewTimer = NULL;
-PKDPC				g_NewDpc = NULL;
+PKTIMER			g_NewTimer = NULL;
+PKDPC			g_NewDpc = NULL;
 PWORK_QUEUE_ITEM	g_NewWorkItem = NULL;
-PULONG				g_NewFireCount = NULL;
+PULONG			g_NewFireCount = NULL;
 
 //MACRO for relocating pointer
 #define RELOCATE_POINTER(p)	(g_NewDriverBase + (((PUCHAR)p) - g_OriginalDriverBase))
